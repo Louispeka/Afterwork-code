@@ -6,13 +6,13 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class AcceuilController extends AbstractController
+class AccueilController extends AbstractController
 {
-    #[Route('/acceuil', name: 'app_acceuil')]
+    #[Route('/', name: 'app_acceuil')]
     public function index(): Response
     {
-        return $this->render('acceuil/index.html.twig', [
-            'controller_name' => 'AcceuilController',
+        return $this->render('accueil/index.html.twig', [
+            'controller_name' => 'AccueilController',
         ]);
     }
 }
@@ -24,9 +24,9 @@ $password = ""; // Changez-le si nécessaire
 $dbname = "afterwork"; // Remplacez par le nom de votre base de données
 // AJOUTER LA BDD $conn = new mysqli($servername, $username, $password, $dbname);
 // Vérifiez la connexion
-if ($conn->connect_error) {
-   die("Échec de la connexion: " . $conn->connect_error);
-}
+//if ($conn->connect_error) {
+//   die("Échec de la connexion: " . $conn->connect_error);
+//}
 // Gestion de l'inscription
 if (isset($_POST['register'])) {
    $first_name = $_POST['first_name'];
@@ -67,5 +67,5 @@ if (isset($_GET['logout'])) {
    header("Location: afterwork.php"); // Rediriger vers la page d'accueil
    exit();
 }
-$conn->close();
+// $conn->close();
 ?>
